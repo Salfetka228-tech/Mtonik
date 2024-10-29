@@ -1,0 +1,128 @@
+/* Основные стили */
+body {
+    background-color: #1a1a1a; /* Темно-серый фон */
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-color: #2a2a2a;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+/* Сетка */
+.grid-container {
+    display: flex;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.grid button {
+    width: 80px;
+    height: 80px;
+    background-color: #333333;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Стиль активных ячеек */
+.grid button.active {
+    background-color: #00ff00; /* Зеленый цвет для кристаллов */
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 255, 0, 0.6);
+}
+
+/* Кнопки и контролы */
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+button, select {
+    width: 180px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #00ffaa;
+    color: #1a1a1a;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+}
+
+button:hover, select:hover {
+    background-color: #00c0ff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:active, select:active {
+    transform: translateY(2px);
+}
+
+/* Стиль кнопки "GO TO CHANNEL" */
+.channel-button {
+    width: 180px;
+    padding: 10px;
+    margin-top: 15px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #00ffaa;
+    color: #1a1a1a;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
+}
+
+.channel-button:hover {
+    background-color: #00c0ff;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+}
+
+.channel-button:active {
+    transform: translateY(2px);
+}
+
+/* Адаптация для мобильных устройств (max-width: 600px) */
+@media (max-width: 600px) {
+    .grid button {
+        width: 50px;
+        height: 50px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .controls button, .controls select, .channel-button {
+        width: 140px;
+        padding: 8px;
+        font-size: 14px;
+    }
+}
