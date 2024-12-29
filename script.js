@@ -1,12 +1,6 @@
 const grid = document.getElementById("crystalGrid");
 const gridSizeSelect = document.getElementById("gridSize");
 
-// Настройки кристаллов для каждой сетки
-const crystalCounts = {
-    3: 4, // 3x3
-    5: 11 // 5x5
-};
-
 // Функция для генерации сетки
 function generateGrid() {
     const size = parseInt(gridSizeSelect.value);
@@ -20,14 +14,27 @@ function generateGrid() {
     }
 }
 
+// Функция для получения случайного числа в диапазоне
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 // Функция для предсказания кристаллов с постепенным появлением
 function predictCrystals() {
     generateGrid();
     const size = parseInt(gridSizeSelect.value);
-    const cells = Array.from(grid.children);
-    const crystalCount = crystalCounts[size];
 
+    // Количество кристаллов для сетки
+    let crystalCount;
+    if (size === 3) {
+        crystalCount = 4; // Для 3x3 всегда 4 кристалла
+    } else if (size === 5) {
+        crystalCount = getRandomInt(4, 10); // Для 5x5 случайное число от 4 до 10
+    }
+
+    const cells = Array.from(grid.children);
     const randomIndices = [];
+
     while (randomIndices.length < crystalCount) {
         const randomIndex = Math.floor(Math.random() * cells.length);
         if (!randomIndices.includes(randomIndex)) {
